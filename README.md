@@ -1,16 +1,16 @@
 
 
 <!--This is the markdown readme. View the pretty format on the webpage:
-https://github.com/Itz-Miles/Funkin-Minecraft-flixel
+https://github.com/GO-Miles/Funkin-MINECRAFT
 -->
 ![logo](./art/logos/logo_HD.png)
 ___
 # Source for Funkin' MINECRAFT
-If you want to funkin' play, visit [here](https://itz-miles.github.io/funkinMinecraft/play).
+If you want to funkin' play, visit [here](https://go-miles.github.io/funkin-MINECRAFT).
 
-If you just want to funkin' download, visit [releases](https://github.com/Itz-Miles/Funkin-Minecraft/releases/latest).
+If you just want to funkin' download, visit [releases](https://github.com/GO-Miles/Funkin-Minecraft/releases/latest).
 
-If you want to know what the funk Funkin' MINECRAFT is, visit the [webpage](https://itz-miles.github.io/funkinMinecraft)!
+If you want to know what the funk Funkin' MINECRAFT is, visit the [webpage](https://go-miles.github.io/Funkin-MINECRAFT)!
 
 # Building From Source
 
@@ -107,7 +107,7 @@ lime build mac
 	<tbody>
 		<tr>
 			<td><strong>GitHub Contributors</strong></td>
-			<td><a href="https://github.com/Itz-Miles/Funkin-Minecraft/graphs/contributors">contributors</a> <img src= "./assets/shared/images/icons/github.png" width="16"></td>
+			<td><a href="https://github.com/GO-Miles/Funkin-MINECRAFT/graphs/contributors">contributors</a> <img src= "./assets/shared/images/icons/github.png" width="16"></td>
 		</tr>
 	</tbody>
 </table>
@@ -166,4 +166,4 @@ The source code for Funkin' MINECRAFT is licensed under the [Apache License 2.0]
 
 The assets in Funkin' MINECRAFT are licensed under [CC BY-NC 4.0](https://creativecommons.org/licenses/by-nc/4.0/). See the [LICENSE-assets](./LICENSE-assets) file for more details.
 
-© It'z_Miles 2023 - Some rights reserved.
+© GO Miles 2023 - Some rights reserved.

@@ -51,7 +51,7 @@ class ParallaxBG extends FlxTypedGroup<FlxSprite>
 					PlayState.camZoomTarget = 1.0;
 					PlayState.instance.camTarget.set(500, 200);
 
-					var directoryTitle:FlxText = new FlxText(-400, 250, 0, "\nby itz_miles           stalstruck", 72);
+					var directoryTitle:FlxText = new FlxText(-400, 250, 0, "\nby GO Miles           stalstruck", 72);
 					directoryTitle.setFormat(Paths.font('Minecrafter.ttf'), 72, 0xFF000000, CENTER, OUTLINE, 0xff82aafa);
 					directoryTitle.borderSize = 6;
 					directoryTitle.scrollFactor.set(0.3 * scrollMult, 0.3 * scrollMult);
@@ -182,7 +182,7 @@ class ParallaxBG extends FlxTypedGroup<FlxSprite>
 				setPosition(-130, -70);
 				if (false /*FlxG.state is MainMenuState && MainMenuState.curSelection == 0*/)
 				{
-					var message:FlxText = new FlxText(500, 240, 0, "ItzMilesDev\nleft the game", 16);
+					var message:FlxText = new FlxText(500, 240, 0, "GOMilesDev\nleft the game", 16);
 					message.setFormat(Paths.font('Monocraft.ttf'), 16, 0xFFFFFF, CENTER, OUTLINE, 0xAA000000);
 					message.borderSize = 32;
 					message.scrollFactor.set(0.565789474 * scrollMult, 0.565789474 * scrollMult);

@@ -14,7 +14,7 @@ using StringTools;
 
 class Paths
 {
-	public static var RAW_REPO:String = "https://raw.githubusercontent.com/Itz-Miles/Funkin-MINECRAFT/refs/heads/main/";
+	public static var RAW_REPO:String = "https://raw.githubusercontent.com/GO-Miles/Funkin-MINECRAFT/refs/heads/main/";
 	public static var JS_DELIVR:String = "";
 	inline public static var SOUND_EXT = "ogg";
 

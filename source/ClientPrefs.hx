@@ -106,7 +106,7 @@ class ClientPrefs
 		defaultButtons = gamepadBinds.copy();
 	}
 
-	public static function getSavePath(folder:String = 'Itz_Miles'):String
+	public static function getSavePath(folder:String = 'GO_Miles'):String
 	{
 		@:privateAccess
 		return '${FlxG.stage.application.meta.get('company')}/${FlxSave.validate(FlxG.stage.application.meta.get('file'))}';

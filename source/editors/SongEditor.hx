@@ -21,7 +21,7 @@ class SongEditor extends Menu
 
 	// UI VARIABLES
 	var songName:String = "stalstruck";
-	var songAuthor:String = "It'z Miles";
+	var songAuthor:String = "GO Miles";
 
 	// PANELS
 	var tabs:Array<Panel>;

@@ -40,7 +40,7 @@ enum Anchor
 
 /**
  * The ParallaxSprite is a FlxSprite extension that performs linear transformations to mimic 3D graphics.
- * @author Itz-Miles
+ * @author GO-Miles
  */
 class TestParallaxSprite extends FlxSprite
 {
@@ -533,11 +533,9 @@ class TestParallaxSprite extends FlxSprite
 #end
 
 /*
-	https://github.com/Itz-Miles/parallaxLT
+	https://github.com/GO-Miles/parallaxLT
 
-		Comply with the license!!!
-
-		© 2022-2024 It'z_Miles - some rights rerserved.
+		© 2022-2025 GO Miles - some rights rerserved.
 
 		Licensed under the Apache License, Version 2.0 (the "License");
 		you may not use this file except in compliance with the License.

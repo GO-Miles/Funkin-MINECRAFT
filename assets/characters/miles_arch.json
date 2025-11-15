@@ -24,7 +24,7 @@
 		}
 	],
 	"image": "characters/miles_arch",
-	"healthicon": "itz-miles",
+	"healthicon": "go-miles",
 	"facing_right": true,
 	"healthbar_colors": [
 		207,

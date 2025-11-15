@@ -210,7 +210,7 @@ class IntroState extends MusicBeatState
 					deleteCoolText();
 					logoSpr.visible = false;
 				case 15:
-					createCoolText([" It'z Miles "], -15);
+					createCoolText([" GO Miles "], -15);
 				case 16:
 					addMoreText(' Presents:', 15);
 				case 18:

@@ -71,9 +71,10 @@ class ModEditor extends Menu
 		if (FlxG.save.data.showModEditorPopup == null)
 			FlxG.save.data.showModEditorPopup = true;
 
-		if (!FlxG.save.data.showModEditorPopup)
+		popup = new Panel([]);
+
+		if (FlxG.save.data.showModEditorPopup)
 		{
-			popup = new Panel([]);
 			popup.addLayers([
 				{
 					_functions: [
@@ -140,12 +141,11 @@ class ModEditor extends Menu
 			popup.addLayers(LayerData.createButton("ok, that's pretty cool!", 60, 590, 575, 50, 4, 8, 0xFF00AA00, null, null, function(obj)
 			{
 				FlxG.sound.play(Paths.sound('confirmMenu'), 0.3);
-				/*
-					new FlxTimer().start(2.5, function(tmr)
-					{
-						//popup.kill();
-					});
-				 */
+
+				new FlxTimer().start(2.5, function(tmr)
+				{
+					popup.kill();
+				});
 			}));
 
 			popup.addLayers(LayerData.createButton("do NOT show me this again.", 645, 590, 575, 50, 4, 8, 0xFFAA0000, null, null, function(obj)
@@ -173,8 +173,11 @@ class ModEditor extends Menu
 		content.active = false;
 		header.runAcrossLayers(0);
 		if (popup != null)
+		{
 			popup.revive();
-		popup.runAcrossLayers(0);
+
+			popup.runAcrossLayers(0);
+		}
 	}
 
 	override function update(elapsed:Float)

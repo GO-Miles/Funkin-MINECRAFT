@@ -1,7 +1,7 @@
 {
 	"name": "DOWNFALL ZONE",
 	"path": "downfall_zone",
-	"sky_color": [
+	"sky": [
 		100,
 		129,
 		143

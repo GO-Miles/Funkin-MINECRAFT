@@ -5,7 +5,9 @@ class Level
 	/**
 	 * A list of the level directories found in the filesystem.
 	 */
-	public static var levelsList:Array<String>;
+	public static var levelsList:Array<String> = [];
+
+	public static var loadedList:Array<LevelData> = [];
 
 	public static function reloadList()
 	{
@@ -16,11 +18,24 @@ class Level
 
 typedef LevelData =
 {
-	var chunks:Array<Array<Chunk>>;
+	var name:String;
+	var defaultSky:FlxColor;
+	var defaultAmbience:String;
+	var chunks:Array<Chunk>;
 }
 
 typedef Chunk =
 {
+	/**
+	 * The X coordinate of this chunk. (in chunk units)
+	 */
+	var chunkX:Int;
+
+	/**
+	 * The Y coordinate of this chunk. (in chunk units)
+	 */
+	var chunkY:Int;
+
 	/**
 	 * A list of this chunk's level objects.
 	 */

@@ -1,0 +1,20 @@
+{
+	"name": "DOWNFALL ZONE",
+	"path": "downfall_zone",
+	"sky_color": [
+		100,
+		129,
+		143
+	],
+	"ambience": "downfall",
+	"chunks": [
+		{
+			"cx": 0,
+			"cy": 0
+		},
+		{
+			"cx": 1,
+			"cy": 0
+		}
+	]
+}

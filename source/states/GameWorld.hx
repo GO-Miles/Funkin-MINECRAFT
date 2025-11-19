@@ -81,7 +81,7 @@ class GameWorld extends MusicBeatState
 		fg.setPosition(-130, -70);
 		FG.add(fg);
 
-		Menu.switchTo(TitleMenu);
+		Menu.switchTo(GameMenu);
 	}
 
 	override public function update(elapsed:Float):Void

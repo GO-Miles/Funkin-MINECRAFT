@@ -27,5 +27,9 @@ class GameMenu extends Menu
 
 	override public function update(elapsed:Float)
 	{
+		if (Controls.ACCEPT)
+		{
+			Menu.switchTo(PauseMenu); // menu openOnTop
+		}
 	}
 }

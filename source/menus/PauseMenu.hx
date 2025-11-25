@@ -33,5 +33,9 @@ class PauseMenu extends Menu
 		{
 			Menu.switchTo(GameMenu); // menu close top
 		}
+		if (Controls.BACK)
+		{
+			Menu.switchTo(MainMenu); // for now
+		}
 	}
 }

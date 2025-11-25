@@ -29,5 +29,9 @@ class CharacterMenu extends Menu
 		{
 			Menu.switchTo(AdventureMenu);
 		}
+		if (Controls.ACCEPT)
+		{
+			Menu.switchTo(GameMenu);
+		}
 	}
 }

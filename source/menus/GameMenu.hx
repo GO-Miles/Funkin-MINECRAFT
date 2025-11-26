@@ -38,6 +38,12 @@ class GameMenu extends Menu
 		FlxG.camera.targetOffset.x = FlxG.width / 6; // rule of thirds center offset
 	}
 
+	override public function close()
+	{
+		FlxG.camera.targetOffset.x = 0;
+		super.close();
+	}
+
 	override public function update(elapsed:Float)
 	{
 		if (Controls.ACCEPT)

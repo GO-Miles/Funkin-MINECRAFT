@@ -27,11 +27,6 @@ class Menu extends FlxContainer
 	override public function update(elapsed:Float)
 	{
 		super.update(elapsed);
-		if (MainMenu.camFollow != null)
-		{
-			MainMenu.camFollow.x = 640 + 0.2 * (FlxMath.bound(FlxG.mouse.viewX, 0, 1280) - 640);
-			MainMenu.camFollow.y = 360 + 0.2 * (FlxMath.bound(FlxG.mouse.viewY, 0, 720) - 360);
-		}
 	}
 
 	public function close()
@@ -76,6 +71,7 @@ class Menu extends FlxContainer
 		// clear UI
 		while (GameWorld.UI.length > 0)
 		{
+			trace(Type.getClassName(Type.getClass(GameWorld.UI.members[GameWorld.UI.members.length - 1])));
 			GameWorld.UI.members[GameWorld.UI.members.length - 1].close();
 			GameWorld.UI.remove(GameWorld.UI.members[GameWorld.UI.members.length - 1], true);
 		}

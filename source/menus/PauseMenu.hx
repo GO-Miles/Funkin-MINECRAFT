@@ -23,8 +23,6 @@ class PauseMenu extends Menu
 
 	override public function refresh()
 	{
-		FlxG.camera.follow(GameWorld.player, TOPDOWN, 0.7);
-		FlxG.camera.targetOffset.x = FlxG.width / 6; // rule of thirds center offset
 	}
 
 	override public function update(elapsed:Float)

@@ -21,5 +21,7 @@ class Physics
 	/**
 	 * The width and height of a world chunk in blocks.
 	 */
-	public static final CHUNK_SIZE = 10;
+	public static final CHUNK_SIZE:Int = 10;
+
+	public static var UPDATE_FRAMERATE:Int = 60;
 }

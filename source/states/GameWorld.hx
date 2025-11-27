@@ -69,7 +69,7 @@ class GameWorld extends MusicBeatState
 		speed = new FlxText(500, 560, 500, "", 24);
 		speed.alignment = LEFT;
 		speed.scrollFactor.set();
-		add(speed);
+		FG.add(speed);
 
 		add(UI);
 		add(FG);
@@ -81,7 +81,7 @@ class GameWorld extends MusicBeatState
 		fg.setPosition(-130, -70);
 		FG.add(fg);
 
-		Menu.switchTo(TitleMenu);
+		Menu.switchTo(Intro);
 	}
 
 	override public function update(elapsed:Float):Void

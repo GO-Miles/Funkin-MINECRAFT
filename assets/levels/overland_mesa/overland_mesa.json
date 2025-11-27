@@ -1,0 +1,19 @@
+{
+	"name": "OVERLAND MESA",
+	"path": "overland_mesa",
+	"sky": [
+		106,
+		25,
+		48
+	],
+	"chunks": [
+		{
+			"cx": 0,
+			"cy": 0
+		},
+		{
+			"cx": 1,
+			"cy": 0
+		}
+	]
+}

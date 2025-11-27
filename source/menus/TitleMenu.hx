@@ -35,7 +35,7 @@ class TitleMenu extends Menu
 		logo.y = -10;
 		splashText.y = 560;
 		Menu.transitioning = false;
-		if (Menu.previous != null)
+		if (!(Menu.previous is Intro))
 		{
 			logo.alpha = 0;
 			FlxTween.tween(logo, {alpha: 1}, 0.5, {ease: FlxEase.cubeIn});

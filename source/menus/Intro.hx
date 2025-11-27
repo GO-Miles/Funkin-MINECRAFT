@@ -16,9 +16,16 @@ class Intro extends Menu
 	override public function close()
 	{
 		super.close();
+		GameWorld.BG.visible = true;
+		GameWorld.FG.visible = true;
+		GameWorld.player.visible = true;
 	}
 
 	override public function update(elapsed:Float)
 	{
+		if (Controls.ACCEPT)
+		{
+			Menu.switchTo(TitleMenu);
+		}
 	}
 }

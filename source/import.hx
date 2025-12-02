@@ -1,4 +1,5 @@
 import states.*;
+import GameWorld;
 import states.LoadingState;
 import states.PlayState;
 import objects.*;

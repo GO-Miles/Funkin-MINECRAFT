@@ -1,4 +1,3 @@
-package states;
 
 import flixel.math.FlxMath;
 import menus.Menu;

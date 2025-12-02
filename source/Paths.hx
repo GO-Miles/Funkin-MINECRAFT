@@ -1,5 +1,6 @@
 package;
 
+import lime.graphics.Image;
 import openfl.display.BitmapData;
 import openfl.system.System;
 import flixel.FlxG;
@@ -284,10 +285,10 @@ class Paths
 		localTrackedAssets.push(gottenPath);
 		return currentTrackedSounds.get(gottenPath);
 	}
-	/*
-		var url = "https://avatars.githubusercontent.com/u/95124554?u=810545ff222794e115788bdaf418f2877f51744d&v=4&s=256";
 
-		var sprite = new FlxSprite(100, 100);
+	public static function webLoadTest(sprite:FlxSprite)
+	{
+		var url = "https://avatars.githubusercontent.com/u/95124554?u=810545ff222794e115788bdaf418f2877f51744d&v=4&s=256";
 
 		Image.loadFromFile(url).onComplete(function(image:Image)
 		{
@@ -295,12 +296,12 @@ class Paths
 			{
 				trace("Image loaded successfully!");
 				sprite.loadGraphic(BitmapData.fromImage(image));
-				add(sprite);
+				// add(sprite);
 			}
 			else
 			{
 				trace("Failed to load image from URL: " + url);
 			};
 		});
-	 */
+	}
 }

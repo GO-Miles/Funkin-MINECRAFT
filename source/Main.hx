@@ -29,6 +29,7 @@ using StringTools;
 
 class Main extends Sprite
 {
+	public static var BG_COLOR:FlxColor = #if !html5 0xFF0F0F0F #else 0xFF000000 #end;
 	public static var fpsVar:FPSCounter;
 	public static var buildInfo:TextField;
 
@@ -67,7 +68,7 @@ class Main extends Sprite
 		FlxAssets.FONT_DEFAULT = "Monocraft";
 		addChild(new FlxGame(1280, 720, LoadingState, 60, 60, true, false));
 
-		#if !html5 FlxG.camera.bgColor = 0x0F0F0F; #end
+		FlxG.camera.bgColor = BG_COLOR;
 		FlxG.save.bind(FlxG.stage.application.meta.get("name"), ClientPrefs.getSavePath());
 		ClientPrefs.loadDefaultKeys();
 		ClientPrefs.loadPrefs();
@@ -76,7 +77,7 @@ class Main extends Sprite
 		FlxAssets.FONT_DEFAULT = "assets/fonts/Monocraft.ttf";
 		FlxG.game.focusLostFramerate = 60;
 		FlxG.fixedTimestep = !ClientPrefs.data.variableTimestep;
-		FlxG.camera.fade(#if !html5 0xFF0F0F0F #else 0xFF000000 #end, 1, true);
+		FlxG.camera.fade(BG_COLOR, 1, true);
 		// FlxTween.tween(FlxG.camera.bgColor, {alphaFloat: 1}, 3);
 		FlxG.sound.muteKeys = Controls.muteKeys;
 		FlxG.sound.volumeDownKeys = Controls.volumeDownKeys;

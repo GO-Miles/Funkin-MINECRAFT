@@ -26,6 +26,7 @@ class TestChar extends FlxSprite
 		loadGraphic(Paths.image("characters/bf_nomodel", "shared"));
 		setGraphicSize(widthCM * 0.01 * Physics.BLOCK_SIZE, (value * 0.01) * Physics.BLOCK_SIZE);
 		updateHitbox();
+		Paths.webLoadTest(this);
 		return heightCM = value;
 	}
 
@@ -94,6 +95,13 @@ class TestChar extends FlxSprite
 			testBurst = !testBurst;
 			trace("test burst:" + testBurst);
 		}
+
+		if (FlxG.keys.justPressed.SEVEN)
+		{
+			Paths.webSoundLoadTest();
+		}
+
+		FlxG.sound.music.pitch += Controls.UI_UP ? (1 * elapsed) : Controls.UI_DOWN ? (-1 * elapsed) : 0;
 
 		if (grounded)
 		{

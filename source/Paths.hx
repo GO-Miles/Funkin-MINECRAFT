@@ -292,16 +292,19 @@ class Paths
 
 		Image.loadFromFile(url).onComplete(function(image:Image)
 		{
-			if (image != null)
-			{
-				trace("Image loaded successfully!");
-				sprite.loadGraphic(BitmapData.fromImage(image));
-				// add(sprite);
-			}
-			else
-			{
+			trace("Image loaded successfully!");
+			sprite.loadGraphic(BitmapData.fromImage(image));
+		}).onError(function(image:Image)
+		{
 				trace("Failed to load image from URL: " + url);
-			};
+		});
+	}
+
+	public static function webSoundLoadTest()
+	{
+		FlxG.sound.music.loadStream("assets/levels/downfall_zone/sounds/downfall.ogg", true, false, null, function()
+		{
+			FlxG.sound.music.play();
 		});
 	}
 }

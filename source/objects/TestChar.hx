@@ -19,14 +19,11 @@ class TestChar extends FlxSprite
 
 	public var runSpeed:Float;
 
-	var testBurst:Bool = true;
-
 	function set_heightCM(value:Float):Float
 	{
 		loadGraphic(Paths.image("characters/bf_nomodel", "shared"));
 		setGraphicSize(widthCM * 0.01 * Physics.BLOCK_SIZE, (value * 0.01) * Physics.BLOCK_SIZE);
 		updateHitbox();
-		Paths.webLoadTest(this);
 		return heightCM = value;
 	}
 
@@ -35,7 +32,7 @@ class TestChar extends FlxSprite
 
 	function getInputs()
 	{
-		jumpInput = Controls.JUMP ? true : false; // Controls.JUMP;
+		jumpInput = Controls.JUMP;
 		inputHorizontal = Controls.NOTE_LEFT ? -1 : Controls.NOTE_RIGHT ? 1 : 0;
 	}
 
@@ -46,7 +43,6 @@ class TestChar extends FlxSprite
 		widthCM = WidthCM;
 		heightCM = HeightCM;
 		runSpeed = RunSpeed;
-		color = FlxColor.CYAN;
 		moves = true;
 		acceleration.y = Physics.gravity * Physics.BLOCK_SIZE;
 		setFacingFlip(RIGHT, true, false);
@@ -90,19 +86,6 @@ class TestChar extends FlxSprite
 
 		getGrounded();
 
-		if (FlxG.keys.justPressed.SIX)
-		{
-			testBurst = !testBurst;
-			trace("test burst:" + testBurst);
-		}
-
-		if (FlxG.keys.justPressed.SEVEN)
-		{
-			Paths.webSoundLoadTest();
-		}
-
-		FlxG.sound.music.pitch += FlxG.keys.justPressed.NINE ? (1 * elapsed) : FlxG.keys.justPressed.EIGHT ? (-1 * elapsed) : 0;
-
 		if (grounded)
 		{
 			y = FlxG.height - height - 250;
@@ -113,7 +96,7 @@ class TestChar extends FlxSprite
 			acceleration.x = runSpeed * Physics.BLOCK_SIZE * inputHorizontal;
 			acceleration.x *= FlxG.keys.pressed.SHIFT ? 0.5 : 1;
 
-			if (testBurst && (Math.abs(velocity.x) < Physics.BLOCK_SIZE * 0.5))
+			if ((Math.abs(velocity.x) < Physics.BLOCK_SIZE * 0.5))
 				initialDash();
 
 			if (velocity.x > 0 && inputHorizontal < 0 || velocity.x < 0 && inputHorizontal > 0)

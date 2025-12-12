@@ -1,4 +1,3 @@
-
 import flixel.math.FlxMath;
 import menus.Menu;
 import parallax.ParallaxBG;
@@ -89,6 +88,13 @@ class GameWorld extends MusicBeatState
 			Conductor.songPosition = FlxG.sound.music.time;
 
 		speed.text = 'speed (mps): ${FlxMath.roundDecimal(player.velocity.x / Physics.BLOCK_SIZE, 3)}';
+
+		if (FlxG.keys.justPressed.SEVEN)
+		{
+			Paths.webSoundLoadTest();
+		}
+
+		FlxG.sound.music.pitch += FlxG.keys.justPressed.NINE ? (1 * elapsed) : FlxG.keys.justPressed.EIGHT ? (-1 * elapsed) : 0;
 
 		super.update(elapsed);
 	}

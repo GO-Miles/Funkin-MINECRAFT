@@ -47,7 +47,7 @@ class ClientPrefs
 		'ui_left' => [A, LEFT],
 		'ui_down' => [S, DOWN],
 		'ui_right' => [D, RIGHT],
-		'accept' => [SPACE, ENTER],
+		'accept' => [ENTER],
 		'back' => [BACKSPACE, ESCAPE],
 		'pause' => [ENTER, ESCAPE],
 		'reset' => [R],

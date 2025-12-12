@@ -35,7 +35,7 @@ class TestChar extends FlxSprite
 
 	function getInputs()
 	{
-		jumpInput = Controls.NOTE_UP ? true : false; // Controls.JUMP;
+		jumpInput = Controls.JUMP ? true : false; // Controls.JUMP;
 		inputHorizontal = Controls.NOTE_LEFT ? -1 : Controls.NOTE_RIGHT ? 1 : 0;
 	}
 
@@ -101,7 +101,7 @@ class TestChar extends FlxSprite
 			Paths.webSoundLoadTest();
 		}
 
-		FlxG.sound.music.pitch += Controls.UI_UP ? (1 * elapsed) : Controls.UI_DOWN ? (-1 * elapsed) : 0;
+		FlxG.sound.music.pitch += FlxG.keys.justPressed.NINE ? (1 * elapsed) : FlxG.keys.justPressed.EIGHT ? (-1 * elapsed) : 0;
 
 		if (grounded)
 		{
@@ -133,22 +133,6 @@ class TestChar extends FlxSprite
 			acceleration.x = 0;
 			drag.x = 0;
 		}
-		/*
-			if (x > FlxG.width + width)
-			{
-				// velocity.x = -velocity.x * 0.75;
-				// facing = LEFT;
-				// x = FlxG.width - width;
-				x = 0 - width;
-			}
-			if (x < 0 - width)
-			{
-				// facing = RIGHT;
-				// velocity.x = -velocity.x * 0.75;
-				// x = 0;
-				x = FlxG.width + width;
-			}
-		 */
 	}
 
 	override public function destroy()

@@ -142,7 +142,7 @@ class Controls
 		return justPressed('taunt');
 
 	static function get_JUMP()
-		return justPressed('jump');
+		return pressed('jump');
 
 	static function get_ATTACK()
 		return FlxG.mouse.justPressed || justPressed('attack');

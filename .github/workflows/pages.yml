@@ -30,11 +30,33 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: gh-pages
-      # Download the web artifact
+
+      - name: Debug after checkout
+        run: |
+          echo "PWD:"
+          pwd
+          echo
+          echo "Workspace contents:"
+          ls -la
+
       - name: Download Web Build
         uses: actions/download-artifact@v4
         with:
           name: webBuild
+
+      - name: Debug after artifact download
+        run: |
+          echo "PWD:"
+          pwd
+          echo
+          echo "Workspace contents:"
+          ls -la
+          echo
+          echo "Find webBuild:"
+          find . -maxdepth 4 -type d -name "webBuild"
+          echo
+          echo "Full tree:"
+          find . -maxdepth 4
 
       # Inject the game into gh-pages
       - name: Copy game into Pages

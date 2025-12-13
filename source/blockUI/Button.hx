@@ -35,23 +35,25 @@ class Button extends FlxSpriteContainer
 	}
 
 	/**
-	 * Makes (or recycles) a Button.
+	 * Recycles a Button.
 	 */
-	public static function make(X:Int, Y:Int, Width:Int, Height:Int, BorderSize:Int, RimSize:Int, Label:String, ?Color:Int = FlxColor.GRAY,
+	public static function weak(X:Int, Y:Int, Width:Int, Height:Int, BorderSize:Int, RimSize:Int, Label:String, ?Color:Int = FlxColor.GRAY,
 			?LabelColor:Int = FlxColor.WHITE, ?OutlineColor:Int = FlxColor.BLACK, ?ShadowColor:Int = 0x35000000):Button
 	{
-		var button:Button = cache.recycle(Button, Button.new);
-
-		button.setup(X, Y, Width, Height, BorderSize, RimSize, Label, Color, LabelColor, OutlineColor, ShadowColor);
+		var button:Button = cache.recycle(Button,
+			() -> new Button(X, Y, Width, Height, BorderSize, RimSize, Label, Color, LabelColor, OutlineColor, ShadowColor));
 
 		return button;
 	}
 
-	public function new()
+	public function new(?X:Int, ?Y:Int, ?Width:Int, ?Height:Int, ?BorderSize:Int, ?RimSize:Int, ?Label:String, ?Color:Int = FlxColor.GRAY,
+			?LabelColor:Int = FlxColor.WHITE, ?OutlineColor:Int = FlxColor.BLACK, ?ShadowColor:Int = 0x35000000)
 	{
 		super();
 
 		init();
+
+		setup(X, Y, Width, Height, BorderSize, RimSize, Label, Color, LabelColor, OutlineColor, ShadowColor);
 	}
 
 	function init()

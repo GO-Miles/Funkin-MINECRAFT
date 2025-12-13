@@ -11,13 +11,11 @@ class CharacterMenu extends Menu
 		header.text = "select your character";
 		add(header);
 
-		button = Button.make(100, 200, 200, 100, 5, 10, "woah", null, 0xFF000000);
-		add(button);
+		add(new Button(100, 200, 200, 100, 5, 10, "woah", null, 0xFF000000));
 	}
 
 	override public function refresh()
 	{
-		button = Button.make(100, 200, 200, 100, 5, 10, "woah", null, 0xFF000000);
 		header.runAcrossLayers(2);
 		super.refresh();
 	}

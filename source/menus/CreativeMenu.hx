@@ -10,13 +10,12 @@ class CreativeMenu extends Menu
 		header = new Panel(LayerData.HEADER);
 		header.text = "create your objective";
 		add(header);
+
+		add(new Button(100, 200, 200, 100, 5, 10, "woah", null, 0xFF000000));
 	}
 
 	override public function refresh()
 	{
-		button = Button.make(100, 200, 200, 100, 5, 10, "woah", null, 0xFF000000);
-		tryAdd(button);
-
 		header.runAcrossLayers(0);
 		super.refresh();
 	}

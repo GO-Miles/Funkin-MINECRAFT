@@ -42,13 +42,15 @@ jobs:
       # Inject the game into gh-pages
       - name: Copy game into Pages
         run: |
-          rm -rf /game
-          mkdir -p /game
-          cp -r webBuild/* /game/
+          rm -rf game
+          mkdir -p game
+          cp -r webBuild/* game/
 
       # Upload combined site to Pages
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
 
       # Deploy
       - name: Deploy to GitHub Pages

@@ -43,6 +43,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: webBuild
+          path: webBuild
 
       - name: Debug after artifact download
         run: |

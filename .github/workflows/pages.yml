@@ -24,19 +24,17 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
-
     steps:
-      # Download the web artifact
-      - name: Download Web Build
-        uses: actions/download-artifact@v4
-        with:
-          name: webBuild
-
       # Checkout gh-pages static content
       - name: Checkout gh-pages
         uses: actions/checkout@v4
         with:
           ref: gh-pages
+      # Download the web artifact
+      - name: Download Web Build
+        uses: actions/download-artifact@v4
+        with:
+          name: webBuild
 
       # Inject the game into gh-pages
       - name: Copy game into Pages

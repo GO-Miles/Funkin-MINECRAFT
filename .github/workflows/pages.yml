@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   build:
-    uses: ./.github/workflows/main.yml
+    uses: GO-Miles/Funkin-MINECRAFT/.github/workflows/main.yml@main
 
   deploy:
     needs: build

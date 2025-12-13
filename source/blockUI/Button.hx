@@ -16,6 +16,16 @@ class Button extends FlxSpriteContainer
 
 	private var label:FlxText;
 
+	private var onHover:Button->Void;
+
+	private var onClick:Button->Void;
+
+	private var onPress:Button->Void;
+
+	private var onRelease:Button->Void;
+
+	private var onPush:Button->Void;
+
 	/**
 	 * Frees all of the buttons so they can be recycled
 	 */

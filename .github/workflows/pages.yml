@@ -31,7 +31,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: webBuild
-          path: webBuild
 
       # Checkout gh-pages static content
       - name: Checkout gh-pages

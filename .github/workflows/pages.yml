@@ -1,0 +1,56 @@
+name: Deploy Web Build to GitHub Pages
+
+on:
+  release:
+    types: [created]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: ./.github/workflows/main.yml
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+
+    steps:
+      # Download the web artifact
+      - name: Download Web Build
+        uses: actions/download-artifact@v4
+        with:
+          name: webBuild
+          path: webBuild
+
+      # Checkout gh-pages static content
+      - name: Checkout gh-pages
+        uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+
+      # Inject the game into gh-pages
+      - name: Copy game into Pages
+        run: |
+          rm -rf /game
+          mkdir -p /game
+          cp -r webBuild/* /game/
+
+      # Upload combined site to Pages
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+
+      # Deploy
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

@@ -58,7 +58,7 @@ class TestChar extends FlxSprite
 
 	public function jump()
 	{
-		velocity.y = -(Physics.BLOCK_SIZE * 9.8 * 0.5) * 1.0; // times jump height meters
+		velocity.y -= (Physics.BLOCK_SIZE * 9.8 * 0.5) * 1.0; // times jump height meters
 	}
 
 	function turnAround()

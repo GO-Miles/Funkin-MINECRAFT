@@ -33,7 +33,9 @@ class TestChar extends FlxSprite
 	function getInputs()
 	{
 		jumpInput = Controls.JUMP;
-		inputHorizontal = Controls.NOTE_LEFT ? -1 : Controls.NOTE_RIGHT ? 1 : 0;
+		inputHorizontal = 0;
+		inputHorizontal += Controls.NOTE_LEFT ? -1 : 0;
+		inputHorizontal += Controls.NOTE_RIGHT ? 1 : 0;
 	}
 
 	override public function new(?X:Float, ?Y:Float, ?WidthCM:Float, ?HeightCM:Float, ?RunSpeed:Float)

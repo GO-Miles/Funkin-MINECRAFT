@@ -52,17 +52,17 @@ class Intro extends Menu
 		Conductor.bpm = 100;
 
 		credGroup = new FlxGroup();
-		// add(credGroup);
+		add(credGroup);
 		textGroup = new FlxGroup();
 
 		introGF = new Character(550, 195, 'outlineGF', "shared");
-		// add(introGF);
+		add(introGF);
 
 		logoSpr = new FlxSprite(0, 720 * 0.4).loadGraphic(Paths.image('logos/logo_flixel', "shared"));
 		logoSpr.visible = false;
 		logoSpr.setGraphicSize(Std.int(1280 * 0.5));
 		logoSpr.updateHitbox();
-		logoSpr.antialiasing = ClientPrefs.data.antialiasing;
+		logoSpr.antialiasing = false;
 		logoSpr.screenCenter(X);
 		logoSpr.x -= 250;
 		logoSpr.y -= 100;

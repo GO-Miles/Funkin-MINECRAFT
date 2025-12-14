@@ -1,6 +1,6 @@
-package options;
+package menus;
 
-import options.Option;
+import menus.Option;
 import flixel.FlxG;
 
 class GameplaySubState extends BaseOptionsMenu

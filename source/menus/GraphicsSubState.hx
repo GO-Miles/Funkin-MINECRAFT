@@ -1,10 +1,10 @@
-package options;
+package menus;
 
 import flixel.math.FlxMath;
 import flixel.text.FlxText;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import options.Option;
+import menus.Option;
 
 class GraphicsSubState extends BaseOptionsMenu
 {

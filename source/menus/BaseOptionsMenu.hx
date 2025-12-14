@@ -1,4 +1,4 @@
-package options;
+package menus;
 
 import blockUI.LayerData;
 import blockUI.Panel;
@@ -15,7 +15,7 @@ import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
-import options.Option;
+import menus.Option;
 import InputFormatter;
 import flixel.text.FlxText;
 

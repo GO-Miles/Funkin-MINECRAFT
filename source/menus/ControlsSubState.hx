@@ -1,4 +1,4 @@
-package options;
+package menus;
 
 import blockUI.LayerData;
 import blockUI.Panel;

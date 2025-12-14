@@ -1,4 +1,4 @@
-package options;
+package menus;
 
 import blockUI.LayerData;
 import blockUI.Panel;
@@ -23,7 +23,7 @@ class OptionsState extends Menu
 
 	static var curSelection(default, set):Int = 0;
 
-	//var header:Panel;
+	// var header:Panel;
 
 	@:noCompletion
 	static function set_curSelection(value:Int):Int

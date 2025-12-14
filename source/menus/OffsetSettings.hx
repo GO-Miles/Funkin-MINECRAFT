@@ -41,6 +41,13 @@ class OffsetSettings extends Menu
 		DiscordClient.changePresence("Offsets", null);
 		#end
 
+		var bg:FlxSprite = new FlxSprite(0, 0);
+		bg.makeGraphic(1, 1, FlxColor.BLACK).setGraphicSize(FlxG.width, FlxG.height);
+		bg.updateHitbox();
+		bg.scrollFactor.set();
+		bg.alpha = 0.6;
+		add(bg);
+
 		var header:Panel = new Panel(LayerData.HEADER);
 		header.text = "delay the audio";
 		header.runAcrossLayers(2);

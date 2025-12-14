@@ -16,6 +16,8 @@ using StringTools;
 
 class SettingsMenu extends Menu
 {
+	var bg:FlxSprite;
+
 	public static var fromPlayState:Bool = false;
 
 	var options:Array<String> = [' Gameplay ', ' Graphics ', ' Controls ', ' Offsets '];
@@ -68,6 +70,13 @@ class SettingsMenu extends Menu
 
 		// persistentDraw = persistentUpdate = false;
 
+		bg = new FlxSprite(0, 0);
+		bg.makeGraphic(1, 1, FlxColor.BLACK).setGraphicSize(FlxG.width, FlxG.height);
+		bg.updateHitbox();
+		bg.scrollFactor.set();
+		bg.alpha = 0;
+		add(bg);
+
 		for (i in 0...options.length)
 		{
 			var optionText:FlxText = new FlxText(0, 200 + (100 * i), 0, options[i]);
@@ -86,15 +95,29 @@ class SettingsMenu extends Menu
 
 		header = new Panel(LayerData.HEADER);
 		header.text = "choose your preferences";
-		header.runAcrossLayers();
 		add(header);
 
-		FlxG.camera.flash(FlxG.camera.bgColor, 0.4);
 		curSelection = curSelection;
 		updateItems();
 		ClientPrefs.saveSettings();
 
 		super.create();
+	}
+
+	override function refresh()
+	{
+		header.runAcrossLayers(2);
+
+		if (Menu.previous is MainMenu)
+		{
+			bg.alpha = 0;
+
+			FlxTween.tween(bg, {alpha: 0.6}, 0.4);
+		}
+		else
+		{
+			bg.alpha = 0.6;
+		}
 	}
 
 	override function close()
@@ -137,24 +160,26 @@ class SettingsMenu extends Menu
 		if (Controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'), 0.3);
-			header.runAcrossLayers(1);
-			this.camera.fade(FlxG.camera.bgColor, 0.35, false, function()
-			{
-				if (PlayState.instance != null && SettingsMenu.fromPlayState)
-				{ // Check if player came from playstate.
-					FlxG.sound.music.volume = 0.0;
-					LoadingState.stage = PlayState.SONG.stage;
-					// LoadingState.loadAndSwitchState(new PlayState());
-					Menu.switchTo(MainMenu);
-					FlxG.sound.music.volume = 0;
-					SettingsMenu.fromPlayState = false;
-				}
-				else
-				{ // No? Then return to the main menu.
-					Conductor.bpm = 100;
-					Menu.switchTo(MainMenu);
-				}
-			}, true);
+			FlxTween.tween(bg, {alpha: 0}, 0.35,
+				{
+					onComplete: function(twn)
+					{
+						if (PlayState.instance != null && SettingsMenu.fromPlayState)
+						{ // Check if player came from playstate.
+							FlxG.sound.music.volume = 0.0;
+							LoadingState.stage = PlayState.SONG.stage;
+							// LoadingState.loadAndSwitchState(new PlayState());
+							Menu.switchTo(MainMenu);
+							FlxG.sound.music.volume = 0;
+							SettingsMenu.fromPlayState = false;
+						}
+						else
+						{ // No? Then return to the main menu.
+							Conductor.bpm = 100;
+							Menu.switchTo(MainMenu);
+						}
+					}
+				});
 		}
 		else if (Controls.ACCEPT)
 			openSelectedSubstate(options[curSelection]);

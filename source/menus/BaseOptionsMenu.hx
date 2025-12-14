@@ -52,6 +52,13 @@ class BaseOptionsMenu extends Menu
 		DiscordClient.changePresence(rpcTitle, null);
 		#end
 
+		var bg:FlxSprite = new FlxSprite(0, 0);
+		bg.makeGraphic(1, 1, FlxColor.BLACK).setGraphicSize(FlxG.width, FlxG.height);
+		bg.updateHitbox();
+		bg.scrollFactor.set();
+		bg.alpha = 0.6;
+		add(bg);
+
 		grpOptions = new FlxTypedGroup<Alphabet>();
 		add(grpOptions);
 

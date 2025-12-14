@@ -5,7 +5,6 @@ import flixel.input.gamepad.FlxGamepad;
 
 class Intro extends Menu
 {
-	var credGroup:FlxGroup;
 	var textGroup:FlxGroup;
 	var logoSpr:FlxSprite;
 	var introGF:Character;
@@ -51,9 +50,8 @@ class Intro extends Menu
 
 		Conductor.bpm = 100;
 
-		credGroup = new FlxGroup();
-		add(credGroup);
 		textGroup = new FlxGroup();
+		add(textGroup);
 
 		introGF = new Character(550, 195, 'outlineGF', "shared");
 		add(introGF);
@@ -68,7 +66,7 @@ class Intro extends Menu
 		logoSpr.y -= 100;
 		add(logoSpr);
 
-		// createCoolText([' Built on '], -30);
+		createCoolText([' Built on '], -30);
 	}
 
 	override function update(elapsed:Float)
@@ -124,9 +122,8 @@ class Intro extends Menu
 			money.scale.y = scale;
 			money.x -= 250;
 			money.y += (i * 60) + 100 + offset;
-			if (credGroup != null && textGroup != null)
+			if (textGroup != null)
 			{
-				credGroup.add(money);
 				textGroup.add(money);
 			}
 		}
@@ -134,7 +131,7 @@ class Intro extends Menu
 
 	function addMoreText(text:String, ?offset:Float = 0, ?size:Int = 48)
 	{
-		if (textGroup != null && credGroup != null)
+		if (textGroup != null)
 		{
 			var coolText:FlxText = new FlxText(0, 0, 0, text, size);
 			coolText.setFormat(Paths.font("Monocraft.ttf"), size,
@@ -145,17 +142,19 @@ class Intro extends Menu
 			coolText.screenCenter(X);
 			coolText.x -= 250;
 			coolText.y += (textGroup.length * 60) + 100 + offset;
-			credGroup.add(coolText);
 			textGroup.add(coolText);
 		}
 	}
 
 	function deleteCoolText()
 	{
+		// why this was even a thing eludes me. will do recycling later
 		while (textGroup.members.length > 0)
 		{
-			credGroup.remove(textGroup.members[0], true);
-			textGroup.remove(textGroup.members[0], true);
+			var member:flixel.FlxBasic = textGroup.members[0];
+			textGroup.remove(member, true);
+			member.destroy();
+			member = null;
 		}
 	}
 
@@ -183,9 +182,9 @@ class Intro extends Menu
 					logoSpr.visible = true;
 				case 6:
 					logoSpr.visible = false;
-				//	deleteCoolText();
+					deleteCoolText();
 				case 7:
-					//	createCoolText([' Based on '], -30);
+					createCoolText([' Based on '], -30);
 					logoSpr.loadGraphic(Paths.image('logos/logo_fnf', "shared"));
 					logoSpr.setGraphicSize(Std.int(1280 / 3));
 					logoSpr.updateHitbox();
@@ -194,17 +193,17 @@ class Intro extends Menu
 				case 8:
 					logoSpr.visible = true;
 				case 13:
-					//	deleteCoolText();
+					deleteCoolText();
 					logoSpr.visible = false;
 				case 15:
-					//	createCoolText([" GO Miles "], -15);
+					createCoolText([" GO Miles "], -15);
 				case 16:
-					//	addMoreText(' Presents:', 15);
+					addMoreText(' Presents:', 15);
 				case 18:
 					deleteCoolText();
-				//	createCoolText([" Funkin'"], -15, 148, 1.3);
+					createCoolText([" Funkin'"], -15, 148, 1.3);
 				case 19:
-					//	addMoreText(' MINECRAFT ', 110, 112);
+					addMoreText(' MINECRAFT ', 110, 112);
 				case 21:
 					endIntro();
 			}

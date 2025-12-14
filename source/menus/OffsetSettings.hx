@@ -14,7 +14,7 @@ import flixel.ui.FlxBar;
 
 using StringTools;
 
-class OffsetsState extends Menu
+class OffsetSettings extends Menu
 {
 	var boyfriend:Character;
 	var gf:Character;
@@ -132,7 +132,7 @@ class OffsetsState extends Menu
 			if (beatTween != null)
 				beatTween.cancel();
 			FlxG.sound.play(Paths.sound('cancelMenu'), 0.3); // it doesnt work like that miles
-			Menu.switchTo(OptionsState);
+			Menu.switchTo(SettingsMenu);
 		}
 
 		Conductor.songPosition = FlxG.sound.music.time;

@@ -3,7 +3,7 @@ package menus;
 import menus.Option;
 import flixel.FlxG;
 
-class GameplaySubState extends BaseOptionsMenu
+class GameplaySettings extends BaseOptionsMenu
 {
 	public function new()
 	{

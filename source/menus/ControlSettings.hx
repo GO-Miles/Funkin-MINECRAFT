@@ -15,7 +15,7 @@ import flixel.input.keyboard.FlxKey;
 import flixel.input.gamepad.FlxGamepad;
 import flixel.input.gamepad.FlxGamepadInputID;
 
-class ControlsSubState extends Menu
+class ControlSettings extends Menu
 {
 	var curSelected:Int = 0;
 	var curAlt:Bool = false;
@@ -440,7 +440,7 @@ class ControlsSubState extends Menu
 	function closeState()
 	{
 		FlxG.sound.play(Paths.sound('cancelMenu'), 0.3);
-		Menu.switchTo(OptionsState);
+		Menu.switchTo(SettingsMenu);
 	}
 
 	function closeBinding()

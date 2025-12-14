@@ -6,7 +6,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import menus.Option;
 
-class GraphicsSubState extends BaseOptionsMenu
+class GraphicSettings extends BaseOptionsMenu
 {
 	var boyfriend:Character;
 

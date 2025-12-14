@@ -157,7 +157,7 @@ class BaseOptionsMenu extends Menu
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'), 0.3);
 			// close();
-			Menu.switchTo(MainMenu);
+			Menu.switchTo(SettingsMenu);
 		}
 		else
 		{

@@ -14,7 +14,7 @@ import flixel.tweens.FlxTween;
 
 using StringTools;
 
-class OptionsState extends Menu
+class SettingsMenu extends Menu
 {
 	public static var fromPlayState:Bool = false;
 
@@ -45,13 +45,13 @@ class OptionsState extends Menu
 		switch (label)
 		{
 			case ' Controls ':
-				Menu.switchTo(ControlsSubState);
+				Menu.switchTo(ControlSettings);
 			case ' Graphics ':
-				Menu.switchTo(GraphicsSubState);
+				Menu.switchTo(GraphicSettings);
 			case ' Gameplay ':
-				Menu.switchTo(GameplaySubState);
+				Menu.switchTo(GameplaySettings);
 			case ' Offsets ':
-				Menu.switchTo(OffsetsState);
+				Menu.switchTo(OffsetSettings);
 		}
 	}
 
@@ -140,14 +140,14 @@ class OptionsState extends Menu
 			header.runAcrossLayers(1);
 			this.camera.fade(FlxG.camera.bgColor, 0.35, false, function()
 			{
-				if (PlayState.instance != null && OptionsState.fromPlayState)
+				if (PlayState.instance != null && SettingsMenu.fromPlayState)
 				{ // Check if player came from playstate.
 					FlxG.sound.music.volume = 0.0;
 					LoadingState.stage = PlayState.SONG.stage;
 					// LoadingState.loadAndSwitchState(new PlayState());
 					Menu.switchTo(MainMenu);
 					FlxG.sound.music.volume = 0;
-					OptionsState.fromPlayState = false;
+					SettingsMenu.fromPlayState = false;
 				}
 				else
 				{ // No? Then return to the main menu.

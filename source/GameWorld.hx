@@ -46,8 +46,6 @@ class GameWorld extends MusicBeatState
 
 	public static var FG:FlxGroup = new FlxGroup();
 
-	var speed:FlxText;
-
 	override public function create():Void
 	{
 		super.create();
@@ -63,11 +61,6 @@ class GameWorld extends MusicBeatState
 
 		player = new TestChar(100, 100, 100, 125, 10);
 		add(player);
-
-		speed = new FlxText(500, 560, 500, "", 24);
-		speed.alignment = LEFT;
-		speed.scrollFactor.set();
-		FG.add(speed);
 
 		add(UI);
 		add(FG);
@@ -86,8 +79,6 @@ class GameWorld extends MusicBeatState
 	{
 		if (FlxG.sound.music != null)
 			Conductor.songPosition = FlxG.sound.music.time;
-
-		speed.text = 'speed (mps): ${FlxMath.roundDecimal(player.velocity.x / Physics.BLOCK_SIZE, 3)}';
 
 		if (FlxG.keys.justPressed.SEVEN)
 		{

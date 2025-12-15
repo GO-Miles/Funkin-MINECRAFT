@@ -32,9 +32,6 @@ class MainMenu extends Menu
 		DiscordClient.changePresence("In the Menus", null);
 		#end
 
-		if (!(Menu.previous is TitleMenu))
-			FlxG.camera.fade(FlxG.camera.bgColor, 0.5, true);
-
 		camFollow = new FlxObject(0, 0, 1, 1);
 		add(camFollow);
 

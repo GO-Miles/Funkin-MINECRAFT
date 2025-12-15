@@ -20,7 +20,7 @@ class LayerData
 				},
 				function(obj)
 				{ // tween in
-					FlxTween.tween(obj.sprite, {y: -72}, 1, {ease: FlxEase.quintInOut});
+					FlxTween.tween(obj.sprite, {y: -72}, 0.4, {ease: FlxEase.backIn});
 				},
 				function(obj)
 				{ // substate

@@ -86,6 +86,13 @@ class GameWorld extends MusicBeatState
 		}
 
 		FlxG.sound.music.pitch += FlxG.keys.justPressed.NINE ? (1 * elapsed) : FlxG.keys.justPressed.EIGHT ? (-1 * elapsed) : 0;
+		/*
+			if (FlxG.keys.justPressed.I)
+				FlxG.timeScale -= 0.1;
+
+			if (FlxG.keys.justPressed.O)
+				FlxG.timeScale += 0.1;
+		 */
 
 		super.update(elapsed);
 	}

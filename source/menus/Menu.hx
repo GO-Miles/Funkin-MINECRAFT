@@ -26,6 +26,13 @@ class Menu extends FlxContainer
 
 	override public function update(elapsed:Float)
 	{
+		// again temporary
+		if (MainMenu.camFollow != null)
+		{
+			MainMenu.camFollow.x = 640 + 0.2 * (FlxMath.bound(FlxG.mouse.viewX, 0, 1280) - 640);
+			MainMenu.camFollow.y = 360 + 0.2 * (FlxMath.bound(FlxG.mouse.viewY, 0, 720) - 360);
+		}
+
 		super.update(elapsed);
 	}
 

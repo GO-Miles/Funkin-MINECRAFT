@@ -119,13 +119,7 @@ class MainMenu extends Menu
 
 		// FlxG.camera.follow(GameWorld.player, TOPDOWN, 0.7);
 
-		if (Menu.previous is TitleMenu)
-			header.runAcrossLayers(0);
-		else
-		{
-			header.runAcrossLayers(0);
-			header.runAcrossLayers(2);
-		}
+		header.runAcrossLayers(0);
 
 		for (i in 0...sideBar.length)
 			sideBar[i].runAcrossLayers(0);
@@ -200,16 +194,6 @@ class MainMenu extends Menu
 					Menu.switchTo(TitleMenu);
 				});
 			}
-		}
-		if (backed)
-		{
-			camFollow.x = 640;
-			camFollow.y = 360;
-		}
-		else
-		{
-			camFollow.x = 640 + 0.2 * (FlxMath.bound(FlxG.mouse.viewX, 0, 1280) - 640);
-			camFollow.y = 360 + 0.2 * (FlxMath.bound(FlxG.mouse.viewY, 0, 720) - 360);
 		}
 		super.update(elapsed);
 	}

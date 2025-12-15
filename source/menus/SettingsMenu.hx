@@ -84,13 +84,16 @@ class SettingsMenu extends Menu
 			optionText.ID = i;
 			optionText.borderSize = 4;
 			optionText.screenCenter(X);
+			optionText.alpha = 0;
 			grpOptions.push(optionText);
 			add(optionText);
 		}
 
 		selectorLeft = new Alphabet(0, 0, '[', true);
+		selectorLeft.alpha = 0;
 		add(selectorLeft);
 		selectorRight = new Alphabet(0, 0, ']', true);
+		selectorRight.alpha = 0;
 		add(selectorRight);
 
 		header = new Panel(LayerData.HEADER);
@@ -106,13 +109,26 @@ class SettingsMenu extends Menu
 
 	override function refresh()
 	{
-		header.runAcrossLayers(2);
-
 		if (Menu.previous is MainMenu)
 		{
+			header.runAcrossLayers();
 			bg.alpha = 0;
 
-			FlxTween.tween(bg, {alpha: 0.6}, 0.4);
+			FlxTween.tween(bg, {alpha: 0.6}, 0.5);
+
+			selectorLeft.alpha = 0;
+			selectorRight.alpha = 0;
+
+			for (i in 0...grpOptions.length)
+			{
+				grpOptions[i].alpha = 0;
+				FlxTween.tween(grpOptions[i], {alpha: 1}, 0.1, {startDelay: i * 0.1});
+				if (curSelection == i)
+				{
+					FlxTween.tween(selectorLeft, {alpha: 1}, 0.1, {startDelay: i * 0.1});
+					FlxTween.tween(selectorRight, {alpha: 1}, 0.1, {startDelay: i * 0.1});
+				}
+			}
 		}
 		else
 		{
@@ -160,7 +176,20 @@ class SettingsMenu extends Menu
 		if (Controls.BACK)
 		{
 			FlxG.sound.play(Paths.sound('cancelMenu'), 0.3);
-			FlxTween.tween(bg, {alpha: 0}, 0.35,
+
+			header.runAcrossLayers(1);
+
+			for (i in 0...grpOptions.length)
+			{
+				FlxTween.tween(grpOptions[i], {alpha: 0}, 0.1, {startDelay: i * 0.1});
+				if (curSelection == i)
+				{
+					FlxTween.tween(selectorLeft, {alpha: 0}, 0.1, {startDelay: i * 0.1});
+					FlxTween.tween(selectorRight, {alpha: 0}, 0.1, {startDelay: i * 0.1});
+				}
+			}
+
+			FlxTween.tween(bg, {alpha: 0}, 0.5,
 				{
 					onComplete: function(twn)
 					{

@@ -74,7 +74,6 @@ class BaseOptionsMenu extends Menu
 		descBox.alpha = 0.6;
 		descBox.scrollFactor.set();
 		add(descBox);
-		FlxTween.tween(descBox, {y: 530}, 1.1, {ease: FlxEase.elasticOut, startDelay: 0.4});
 
 		var header:Panel = new Panel(LayerData.HEADER);
 		header.text = title;
@@ -86,7 +85,6 @@ class BaseOptionsMenu extends Menu
 		descText.scrollFactor.set();
 		descText.borderSize = 2.4;
 		add(descText);
-		FlxTween.tween(descText, {y: 550}, 1.1, {ease: FlxEase.elasticOut, startDelay: 0.4});
 
 		for (i in 0...optionsArray.length)
 		{
@@ -121,6 +119,20 @@ class BaseOptionsMenu extends Menu
 
 		changeSelection();
 		reloadCheckboxes();
+	}
+
+	override public function refresh()
+	{
+		super.refresh();
+
+		for (i in 0...grpOptions.length)
+		{
+			grpOptions.members[i].y = 260;
+		}
+		descBox.y = 720;
+		descText.y = 720;
+		FlxTween.tween(descBox, {y: 530}, 1.1, {ease: FlxEase.elasticOut, startDelay: 0.4});
+		FlxTween.tween(descText, {y: 550}, 1.1, {ease: FlxEase.elasticOut, startDelay: 0.4});
 	}
 
 	public function addOption(option:Option)

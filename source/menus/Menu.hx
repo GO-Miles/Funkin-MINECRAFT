@@ -78,7 +78,7 @@ class Menu extends FlxContainer
 		// clear UI
 		while (GameWorld.UI.length > 0)
 		{
-			trace(Type.getClassName(Type.getClass(GameWorld.UI.members[GameWorld.UI.members.length - 1])));
+			// trace(Type.getClassName(Type.getClass(GameWorld.UI.members[GameWorld.UI.members.length - 1])));
 			GameWorld.UI.members[GameWorld.UI.members.length - 1].close();
 			GameWorld.UI.remove(GameWorld.UI.members[GameWorld.UI.members.length - 1], true);
 		}
